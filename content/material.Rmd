@@ -1,0 +1,17 @@
+---
+title: "Material"
+date: "2021-11-28"
+---
+
+# The complete course material
+
+Nice table with links to teach session (maybe better do it with the csv solution?)
+
+| **Session** | **Date**      | **Topic**           | **Quicklink**|
+|------------:|--------------:|--------------------:|--------------|
+|          1  | March 12, 2022| General introduction| [Link](#s1)   |
+
+
+## Session 1 {#s1}
+
+## Session 2
