@@ -16,7 +16,7 @@ output:
 ```{r, echo=FALSE, message=FALSE}
 library(here)
 base_path <- "static/images/installation"
-fig_format <- "png" # png, pdf or jpg
+fig_format <- paste0(".", "png") # png, pdf or jpg
 ```
 
 # Installing R packages
@@ -34,10 +34,13 @@ as follows:
 1. Visit this webpage:
 [https://github.com/graebnerc/DataScienceInstallR](https://github.com/graebnerc/DataScienceInstallR)
 2. Download the whole code as ZIP-archive by clicking on `Code/Download ZIP`:
-![DownloadCodeGit](images/install/download-code-git.jpg)
+
 ```{r, echo=FALSE}
 fig_name <- paste0("download-code-git", fig_format)
+knitr::include_graphics(
+  path = here("static", "images", "install", fig_name))
 ```
+
 
 3. Unpack the ZIP-archive in a suitable directory on your computer.
 4. Open the project in R-Studio by double-clicking on 
