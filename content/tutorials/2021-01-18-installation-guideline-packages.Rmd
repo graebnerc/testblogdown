@@ -1,0 +1,170 @@
+---
+author: Claudius Gräbner-Radkowitsch
+categories:
+- Setup
+- Tutorials
+- Installation
+date: "2022-01-18"
+slug: installation-packages
+title: Install LaTeX and the relevant packages
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+---
+
+```{r, echo=FALSE, message=FALSE}
+library(here)
+base_path <- "static/images/installation"
+fig_format <- "png" # png, pdf or jpg
+```
+
+# Installing R packages
+
+After installing [R and R-Studio](/tutorials/installation-guideline/), you 
+still need to install a number of so called [R packages](https://r-pkgs.org/).
+We will learn more about what packages are and how to use them, but I 
+recommend you to install now already all the packages you will need over the
+following semester. This way you make sure that everything is working now, 
+and you save yourself from trouble during the semester.
+
+To install packages, a stable internet connection is required. Then, proceed
+as follows:
+
+1. Visit this webpage:
+[https://github.com/graebnerc/DataScienceInstallR](https://github.com/graebnerc/DataScienceInstallR)
+2. Download the whole code as ZIP-archive by clicking on `Code/Download ZIP`:
+![DownloadCodeGit](images/install/download-code-git.jpg)
+```{r, echo=FALSE}
+fig_name <- paste0("download-code-git", fig_format)
+```
+
+3. Unpack the ZIP-archive in a suitable directory on your computer.
+4. Open the project in R-Studio by double-clicking on 
+`PackageInstallation.Rproj`
+4. Open the file `install_packages.R` in R-Studio.
+5. Adjust the first to the OS you are using.
+For instance, when you are using a Mac or a Windows computer, the file
+should look like this:
+```{r, echo=FALSE}
+fig_name_1 <- paste0("firstline-mac", fig_format)
+fig_name_2 <- paste0("firstline-win", fig_format)
+```
+![My picture](firstline-mac.png)
+![My picture](firstline-win.png)
+<!--
+```{r fig.align='center', out.width='90%', echo=FALSE}
+knitr::include_graphics(
+  path = here(base_path, "firstline_mac.png"))
+knitr::include_graphics(
+  path = here(base_path, "firstline_windows.png"))
+```
+-->
+5. Select lines 20-37 and click on the button `Run`:
+![My picture](clickrun.png)
+```{r, echo=FALSE}
+fig_name <- paste0("clickrun", fig_format)
+```
+<!--
+```{r fig.align='center', out.width='50%', echo=FALSE}
+knitr::include_graphics(
+  path = here(base_path, "click-run.png"))
+```
+-->
+
+6. Check if the package `here` was installed. You will get the respective 
+message in the console:
+```{r, echo=FALSE}
+fig_name <- paste0("here-success", fig_format)
+```
+![My picture](here-success.png)
+
+<!--
+```{r fig.align='center', out.width='50%', echo=FALSE}
+knitr::include_graphics(
+  path = here(base_path, "success-message1.png"))
+```
+-->
+If you encounter any problems, please 
+make a screenshot and post it in the Moodle forum.
+7. Select the rest of the scrip and run it as you did with the first lines.
+If you get the following message everything worked well and all packages
+were installed successfully:
+![My picture](success-message2.png)
+```{r, echo=FALSE}
+fig_name <- paste0("packages-success", fig_format)
+```
+<!--
+```{r fig.align='center', out.width='50%', echo=FALSE}
+knitr::include_graphics(
+  path = here(base_path, "success-message2.png"))
+```
+-->
+If not, please post the file `InstallationLog.txt` and a screenshot with an error into the Moodle forum.
+
+
+
+# Installing LaTeX
+
+To create PDF-documents you have to install a 
+[Latex distribution](https://www.latex-project.org/).
+I recommend you to install the distribution
+[tinytex](https://yihui.org/tinytex/),
+irrespectively of whether you already have a different distribution or not.
+
+In the previous step you already installed the *package* `tinytex`.
+This is *not* the distribution. To install the latter, you need to execute the
+following commands while having a stable internet connection:
+
+```{r, eval=FALSE}
+tinytex::install_tinytex()
+```
+
+Please note that this make take a while and that about 65MB will be downloaded.
+
+To make sure everything runs smoothly you should download the docuument 
+`test.Rmd` - it is actually in the ZIP-archive you have downloaded above.
+To test whether everything works, please open `test.Rmd` in R-Studio and then
+click on the button `Knit to PDF`:
+
+![My picture](knittopdf.png)
+
+```{r, echo=FALSE}
+fig_name <- paste0("knittopdf", fig_format)
+```
+
+If this works you are all set. If there are any errors showing up, please
+post a screenshot and a problem description to the Moodle forum.
+
+
+## A common problem when installing tinytex on a Mac
+
+The following hints should be helpful if after the attempted installation
+of `tinytex` you see either one of these error messages:
+
+![My picture](tiny_error_1.png)
+![My picture](tiny_error_2.png)
+
+```{r, echo=FALSE}
+fig_name <- paste0("tiny-error-1", fig_format)
+fig_name <- paste0("tiny-error-2", fig_format)
+```
+
+In this case, execute the following comment in your R console within
+R-Studio:
+
+```{r, eval=FALSE}
+tinytex::install_tinytex(force = TRUE)
+```
+
+Then close R-Studio and restart your computer. If `test.Rmd` still cannot be
+compiled after this, please open your Mac Terminal (via the app `Terminal`)
+and enter the following commands:
+
+```
+sudo chown -R `whoami`:admin /usr/local/bin
+
+~/Library/TinyTeX/bin/x86_64-darwin/tlmgr path add
+```
+Then install `tinytex` again as described above, restart your computer, and
+try to compile `test.Rmd` again.

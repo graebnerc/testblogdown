@@ -1,0 +1,123 @@
+---
+author: Claudius Gräbner-Radkowitsch
+categories:
+- Setup
+- Tutorials
+- Installation
+date: "2022-01-18"
+slug: installation-packages
+title: Install LaTeX and the relevant packages
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#installing-r-packages">Installing R packages</a></li>
+<li><a href="#installing-latex">Installing LaTeX</a>
+<ul>
+<li><a href="#a-common-problem-when-installing-tinytex-on-a-mac">A common problem when installing tinytex on a Mac</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="installing-r-packages" class="section level1">
+<h1>Installing R packages</h1>
+<p>After installing <a href="/tutorials/installation-guideline/">R and R-Studio</a>, you
+still need to install a number of so called <a href="https://r-pkgs.org/">R packages</a>.
+We will learn more about what packages are and how to use them, but I
+recommend you to install now already all the packages you will need over the
+following semester. This way you make sure that everything is working now,
+and you save yourself from trouble during the semester.</p>
+<p>To install packages, a stable internet connection is required. Then, proceed
+as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Visit this webpage:
+<a href="https://github.com/graebnerc/DataScienceInstallR">https://github.com/graebnerc/DataScienceInstallR</a></p></li>
+<li><p>Download the whole code as ZIP-archive by clicking on <code>Code/Download ZIP</code>:
+<img src="images/install/download-code-git.jpg" alt="DownloadCodeGit" /></p></li>
+<li><p>Unpack the ZIP-archive in a suitable directory on your computer.</p></li>
+<li><p>Open the project in R-Studio by double-clicking on
+<code>PackageInstallation.Rproj</code></p></li>
+<li><p>Open the file <code>install_packages.R</code> in R-Studio.</p></li>
+<li><p>Adjust the first to the OS you are using.
+For instance, when you are using a Mac or a Windows computer, the file
+should look like this:</p></li>
+</ol>
+<p><img src="firstline-mac.png" alt="My picture" />
+<img src="firstline-win.png" alt="My picture" />
+<!--
+<img src="/Volumes/develop/teaching/claustestblogdown/static/images/installation/firstline_mac.png" width="90%" style="display: block; margin: auto;" /><img src="/Volumes/develop/teaching/claustestblogdown/static/images/installation/firstline_windows.png" width="90%" style="display: block; margin: auto;" />
+-->
+5. Select lines 20-37 and click on the button <code>Run</code>:
+<img src="clickrun.png" alt="My picture" /></p>
+<!--
+<img src="/Volumes/develop/teaching/claustestblogdown/static/images/installation/click-run.png" width="50%" style="display: block; margin: auto;" />
+-->
+<ol start="6" style="list-style-type: decimal">
+<li>Check if the package <code>here</code> was installed. You will get the respective
+message in the console:</li>
+</ol>
+<div class="figure">
+<img src="here-success.png" alt="" />
+<p class="caption">My picture</p>
+</div>
+<!--
+<img src="/Volumes/develop/teaching/claustestblogdown/static/images/installation/success-message1.png" width="50%" style="display: block; margin: auto;" />
+-->
+<p>If you encounter any problems, please
+make a screenshot and post it in the Moodle forum.
+7. Select the rest of the scrip and run it as you did with the first lines.
+If you get the following message everything worked well and all packages
+were installed successfully:
+<img src="success-message2.png" alt="My picture" /></p>
+<!--
+<img src="/Volumes/develop/teaching/claustestblogdown/static/images/installation/success-message2.png" width="50%" style="display: block; margin: auto;" />
+-->
+<p>If not, please post the file <code>InstallationLog.txt</code> and a screenshot with an error into the Moodle forum.</p>
+</div>
+<div id="installing-latex" class="section level1">
+<h1>Installing LaTeX</h1>
+<p>To create PDF-documents you have to install a
+<a href="https://www.latex-project.org/">Latex distribution</a>.
+I recommend you to install the distribution
+<a href="https://yihui.org/tinytex/">tinytex</a>,
+irrespectively of whether you already have a different distribution or not.</p>
+<p>In the previous step you already installed the <em>package</em> <code>tinytex</code>.
+This is <em>not</em> the distribution. To install the latter, you need to execute the
+following commands while having a stable internet connection:</p>
+<pre class="r"><code>tinytex::install_tinytex()</code></pre>
+<p>Please note that this make take a while and that about 65MB will be downloaded.</p>
+<p>To make sure everything runs smoothly you should download the docuument
+<code>test.Rmd</code> - it is actually in the ZIP-archive you have downloaded above.
+To test whether everything works, please open <code>test.Rmd</code> in R-Studio and then
+click on the button <code>Knit to PDF</code>:</p>
+<div class="figure">
+<img src="knittopdf.png" alt="" />
+<p class="caption">My picture</p>
+</div>
+<p>If this works you are all set. If there are any errors showing up, please
+post a screenshot and a problem description to the Moodle forum.</p>
+<div id="a-common-problem-when-installing-tinytex-on-a-mac" class="section level2">
+<h2>A common problem when installing tinytex on a Mac</h2>
+<p>The following hints should be helpful if after the attempted installation
+of <code>tinytex</code> you see either one of these error messages:</p>
+<p><img src="tiny_error_1.png" alt="My picture" />
+<img src="tiny_error_2.png" alt="My picture" /></p>
+<p>In this case, execute the following comment in your R console within
+R-Studio:</p>
+<pre class="r"><code>tinytex::install_tinytex(force = TRUE)</code></pre>
+<p>Then close R-Studio and restart your computer. If <code>test.Rmd</code> still cannot be
+compiled after this, please open your Mac Terminal (via the app <code>Terminal</code>)
+and enter the following commands:</p>
+<pre><code>sudo chown -R `whoami`:admin /usr/local/bin
+
+~/Library/TinyTeX/bin/x86_64-darwin/tlmgr path add</code></pre>
+<p>Then install <code>tinytex</code> again as described above, restart your computer, and
+try to compile <code>test.Rmd</code> again.</p>
+</div>
+</div>

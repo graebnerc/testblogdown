@@ -1,0 +1,237 @@
+---
+author: Claudius Gräbner-Radkowitsch
+categories:
+- Setup
+- Tutorials
+- Installation
+date: "2022-01-18"
+slug: installation-guideline
+title: How to install the necessary software
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#an-overview-over-the-apps-and-services-we-will-be-using---and-why">An overview over the apps and services we will be using - and why</a></li>
+<li><a href="#installation-guidelines">Installation guidelines</a>
+<ul>
+<li><a href="#install-r">Install R</a></li>
+<li><a href="#r-studio">R-Studio</a></li>
+<li><a href="#git">Git</a></li>
+</ul></li>
+<li><a href="#register-for-the-necessary-services">Register for the necessary services</a>
+<ul>
+<li><a href="#github">Github</a></li>
+<li><a href="#netlify">Netlify</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>During this course we will use the following software and services:</p>
+<ul>
+<li>R</li>
+<li>R-Studio</li>
+<li>Git</li>
+<li>Github</li>
+<li>Netlify</li>
+</ul>
+<p>You will need to install the software and register for these services on
+your own. While we will use one session in the second week for joint
+troubleshooting, it is absolutely necessary that you do your best to install
+the software on your own before that date.
+To this end, this document is meant to provide you with all the information
+needed. If you have questions, <em>please use the Moodle forum</em>. It is very
+unlikely that you are the only person having a particular problem. Maybe
+others can already help you out, and if not all should benefit from the
+solution we find for your problem together.</p>
+</div>
+<div id="an-overview-over-the-apps-and-services-we-will-be-using---and-why" class="section level1">
+<h1>An overview over the apps and services we will be using - and why</h1>
+<p><a href="https://www.r-project.org/">R</a>
+is the programming language we are using. Installing <code>R</code> basically gives
+your computer the ability to understand commands you will give to it using the
+language R.
+<a href="https://rstudio.github.io/">R-Studio</a>
+is an application that facilitates the development of R-Studio.
+It is a so called <em>Integrated Development Environment</em> (IDE). You may think of
+it as a fancy editor, which not only allows you to write programs in R using
+a more elaborated text editor, but simultaneously lets you preview the
+graphs you are designing or the reports you are writing. Because R-Studio
+facilitates the use of R, it is important to install R first, and then install
+R-Studio.</p>
+<p><a href="https://git-scm.com/">Git</a>
+is a so called <em>version control system</em> (VCS). It allows you to keep track
+of different versions of your scripts without saving them under different
+names. In other words, if you use Git, you can dispense of saving <code>Script-v1.R</code>,
+<code>Script-v2.R</code> and <code>Script-v3.R</code>, but instead only keep <code>Script.R</code> and save the
+different versions in the background, together with some comments about what
+you have changed. Moreover, it facilitates the joint work on the same
+document, something that is tremendously helpful for group works.
+While we will not learn how to use Git (I will provide some optional tutorials,
+though), it is important to install it since many user-written features of R
+are distributed in a way that relies on Git.</p>
+<p><a href="https://github.com/">Github</a>
+can be thought of as a server for Git. R is an open source programming
+language with a very active community. Many people are constantly developing new
+features for R. For instance, if a new prediction algorithm get developed,
+some people will soon write a so called <a href="https://r-pkgs.org/">R-package</a>
+that implements this
+algorithm in R. Then you as an R user can download this package and use the new
+algorithm. This way, R is unlikely to ever VERALTEN. Sine most developers use
+Git when developing the packages, they often distribute the programs in a way
+that aligns well with the use of Git. And the most prominent way is Github.
+Thus, you can see the source code for almost all R packages you will be using
+on Github. Github is free, and all you need is to register!</p>
+<p>The final service we will be using is <a href="https://www.netlify.com/">Netlify</a>.
+It is an easy way to publish
+reports and host small websites. We will use it such that you can create
+reproducible reports and present them in a visually appealing way. Given the
+ease of use it is a great tool if you want to polish your results up visually
+and send them to friends or colleagues who might not even use R themselves.</p>
+</div>
+<div id="installation-guidelines" class="section level1">
+<h1>Installation guidelines</h1>
+<p>The information in this tutorial is provided for Mac OS, Windows, and Linux.
+Given the variety of different Linux distributions the comments on
+the latter are rather short. There are, however, plenty explanations to be
+found on the web for the different Linux distributions.</p>
+<p>After you have completed the steps outlined below you are almost done: all
+what remains is to install the R packages we require over the course of the
+seminar. To this end, please consult the <a href="/tutorials/installation-packages/">respective Tutorial</a>.</p>
+<div id="install-r" class="section level2">
+<h2>Install R</h2>
+<p>The installation of <code>R</code> is very similar across operating systems (OS).
+The easiest
+way is to visit the <a href="https://www.r-project.org/">R Homepage</a> and too download
+the most recent version for your OS.
+In case you are using Mac OS and want to use Homebrew, its best to use
+<a href="https://github.com/sethrfore/homebrew-r-srf">this formula</a>.</p>
+<p>In case R is already installed on your computer you should make sure that your
+version is more of less up to date. For our seminar you should use at least R
+version <code>R 4.0.4</code>. The version you are currently using is shown as soon as you
+start <code>R</code>.</p>
+<div id="macos-users" class="section level3">
+<h3>MacOS users</h3>
+<p>For <strong>MacOS users</strong>, the easiest route to update <code>R</code> is to just re-install the
+most current version from the <a href="https://www.r-project.org/">R Homepage</a>.
+Keep in mind that in this case you might need to re-install all previously
+installed packages. If you have a lot of packages installed that you want to
+keep, the following steps facilitates the re-installation process.
+First, save a list with all the packages you installed yourself. To this end
+type the following into the R console:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<pre class="r"><code>package_overview &lt;- installed.packages()
+package_names &lt;- as.vector(
+  package_overview[is.na(package_overview[,&quot;Priority&quot;]), 1])
+save(package_names, file=&quot;r_packages.rda&quot;)</code></pre>
+<p>After re-installing R, you then need to load the file you previously saved
+and identify the missing packages. You can use the following code to do so
+if you are in the working directory in which you saved the file
+<code>"r_packages.rda"</code>:</p>
+<pre class="r"><code>load(&quot;r_packages.rda&quot;)
+packages_new &lt;- installed.packages()
+packages_new_ &lt;- as.vector(packages_new[is.na(packages_new[,&quot;Priority&quot;]), 1])
+missing_packages &lt;- setdiff(package_names, packages_new_)
+install.packages(missing_packages)
+update.packages()</code></pre>
+</div>
+<div id="windows-users" class="section level3">
+<h3>Windows users</h3>
+<p><strong>Windows users</strong> have a slightly more convenient route available to them: the
+<a href="https://github.com/talgalili/installr">installr package</a>.
+It does not require you to re-install your packages.
+Just type the following code into your R console:<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<pre class="r"><code>install.packages(&quot;installr&quot;)
+ibrary(installr)
+updateR(TRUE)</code></pre>
+<p>For more information see
+<a href="https://github.com/talgalili/installr">the package website</a>.</p>
+</div>
+<div id="linux-users" class="section level3">
+<h3>Linux users</h3>
+<p>Linux users simply install <code>R</code> via their package manager. A quick search on
+Google should provide you with the information that are relevant for your
+particular Linux distribution.
+Updating is usually
+straightforward as well: just run the respective command from your package
+manager.</p>
+</div>
+</div>
+<div id="r-studio" class="section level2">
+<h2>R-Studio</h2>
+<p>Installing R-Studio is easy. The only thing you should keep in mind that
+you should <strong>install R first</strong>, and <strong>R-Studio second</strong>.
+So, after installing <code>R</code> got to the
+<a href="https://www.rstudio.com/products/rstudio/download/">R-Studio download page</a>
+and download the <em>RStudio Desktop</em> version for your OS according to the
+installation instructions provided.</p>
+<p>If you are on Mac and you are using Homebrew you may use
+<a href="https://formulae.brew.sh/cask/rstudio">this formula</a>.</p>
+</div>
+<div id="git" class="section level2">
+<h2>Git</h2>
+<p>Installing Git is straightforward, but the right approach depends on your OS.</p>
+<div id="macos" class="section level3">
+<h3>MacOS</h3>
+<p>On <strong>MacOS</strong> you should install Git as part of the Command Line Developer
+Tools, which themselfes are part of XCode (Caution: these are large!).
+Its easiest to run the following
+command from your Terminal:<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<pre><code>git --version</code></pre>
+<p>If you get an output such as <code>git version 2.34.1</code> you already installed you
+need. If not, you
+will be asked to install the respective software packages (which can be large,
+so make sure you have a good internet connection).</p>
+</div>
+<div id="windows" class="section level3">
+<h3>Windows</h3>
+<p>On <strong>Windows</strong> you download <code>Git for Windows</code> from the
+<a href="https://git-scm.com/download/win">official Webpage</a>, which also provides you
+with all the relevant instructions.</p>
+</div>
+<div id="linux" class="section level3">
+<h3>Linux</h3>
+<p>On <strong>Linux</strong> use you package manager. In most cases the name of the relevant
+package is <code>git-all</code>, so on Ubunto, for instance, you would install Git
+via <code>sudo apt install git-all</code>.</p>
+</div>
+</div>
+</div>
+<div id="register-for-the-necessary-services" class="section level1">
+<h1>Register for the necessary services</h1>
+<div id="github" class="section level2">
+<h2>Github</h2>
+<p>This is easy. Just visit <a href="https://github.com/">https://github.com/</a> and
+sign up using your email account.</p>
+</div>
+<div id="netlify" class="section level2">
+<h2>Netlify</h2>
+<p>This is easy as well. Visit <a href="https://www.netlify.com/">https://www.netlify.com/</a>
+and click on <code>Sign up</code> in the upper right of the webpage.
+You can now either create a Netlify account by clicking on <code>Email</code> and
+register a new email addresss, or you can link Netlify to one of the other
+accounts you might already have. I personally, for instance, linked
+Netlify to my Github account.</p>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>If you do not yet know what
+the R console is don’t worry. You will learn this during the course. But for
+now it would then be better to update R by just re-installing it.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>If you do not yet know what
+the R console is don’t worry. You will learn this during the course. But for
+now it would then be better to update R by just re-installing it.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>By this I mean that you first open the app
+<code>Terminal</code> and then enter the commend into the window that has opened, and
+then press <code>Enter</code>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
