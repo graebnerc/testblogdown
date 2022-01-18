@@ -10,6 +10,7 @@ footnotereturnlinkcontents: "↩"
 permalinks:
   note: "/note/:year/:month/:day/:slug/"
   post: "/post/:year/:month/:day/:slug/"
+  tutorials: "/tutorials/:year/:month/:day/:slug/"
 
 menu:
   main:
