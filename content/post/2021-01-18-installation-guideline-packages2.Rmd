@@ -4,8 +4,11 @@ categories:
 - Setup
 - Tutorials
 - Installation
+- Shit
+tags:
+- MathJax
 date: "2022-01-18"
-slug: installation-packages
+slug: installation-packages2
 title: Install LaTeX and the relevant packages
 output:
   blogdown::html_page:
@@ -43,8 +46,7 @@ knitr::include_graphics(
 
 2nd option:
 ```{r, echo=FALSE}
-fig_name <- paste0("download-code-git", fig_format)
-knitr::include_graphics('/images/install/clickrun.png')
+knitr::include_graphics('../../static/images/install/clickrun.png')
 ```
 
 3. Unpack the ZIP-archive in a suitable directory on your computer.

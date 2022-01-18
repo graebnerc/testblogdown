@@ -4,9 +4,9 @@ title: Home
 
 [<img src="https://simpleicons.org/icons/github.svg" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" />](https://github.com/yihui/hugo-xmin)
 
-# Microeconomic data analysis
+# Data science
 
-This is the homepage for the course 'Microeconomic data analysis', 
+This is the homepage for the course 'Data science', 
 taught at the Europa University of Flensburg in the spring semester 2021.
 
 ## Logistics
